@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "mediadb"
+version = "1.0.0"
+authors = [
+  { name="Romain Groux", email="romaingroux@github.com" },
+]
+description = "My media DB"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+[project.urls]
+Homepage = "https://github.com/romaingroux/mediaDB"
+Issues = "https://github.com/romaingroux/mediaDB/issues"

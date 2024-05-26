@@ -2,7 +2,7 @@ from pydantic import BaseModel, field_validator, model_validator
 import typing as tp
 import typing_extensions as tp_ext
 import abc
-import lib.models.constants as const
+import mediadb.models.constants as const
 
 
 class VideoMedia(BaseModel, abc.ABC):
