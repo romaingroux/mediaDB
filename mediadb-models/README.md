@@ -1,16 +1,23 @@
-MediaDB
-=======
+MediaDB-models
+==============
 
-MediaDB is an overly complicated Python project containing a set of tools to manage and reference a collection of media files in a file store.
+MediaDB-models is a Python library containing validation models for metadata describing media files .
 
-## Installation
 
-The project requires `python3.9` at least. 
+### Installation
 
-This mediaDB library can be installed using pip:
+Install the MediaDB-models library using:
 
 ```sh
-python3.9 -m pip install mediadb-models/
+python3.9 -m pip install .
+```
+
+### Test
+
+Run test MediaDB-models library tests using:
+
+```sh
+tox
 ```
 
 ## Author
