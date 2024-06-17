@@ -57,6 +57,17 @@ class TestMovie:
             medias.Movie(language=const.Language.ENGLISH,
                          subtitles=const.Language.FRENCH,
                          type=const.VideoType.MOVIE)
+    
+    def test_empty_title(self):
+        """
+        Test construction with all arguments and empty string title.
+        Expected to raise ValueError
+        """
+        with pytest.raises(ValueError):
+            medias.Movie(title="",
+                         language=const.Language.ENGLISH,
+                         subtitles=const.Language.FRENCH,
+                         type=const.VideoType.MOVIE)
 
     def test_no_language(self):
         """
@@ -158,6 +169,17 @@ class TestDocumentary:
         """
         with pytest.raises(ValueError):
             medias.Documentary(language=const.Language.ENGLISH,
+                               subtitles=const.Language.FRENCH,
+                               type=const.VideoType.DOCUMENTARY)
+    
+    def test_empty_title(self):
+        """
+        Test construction with all arguments and empty string title.
+        Expected to raise ValueError
+        """
+        with pytest.raises(ValueError):
+            medias.Documentary(title="",
+                               language=const.Language.ENGLISH,
                                subtitles=const.Language.FRENCH,
                                type=const.VideoType.DOCUMENTARY)
 
@@ -278,6 +300,20 @@ class TestSerie:
         """
         with pytest.raises(ValueError):
             medias.Serie(language=const.Language.ENGLISH,
+                         subtitles=const.Language.ENGLISH,
+                         type=const.VideoType.SERIE,
+                         season=1,
+                         episode=3,
+                         episode_name="Screwby")
+    
+    def test_empty_title(self):
+        """
+        Tests construction with empty title string.
+        Expected to raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            medias.Serie(title="",
+                         language=const.Language.ENGLISH,
                          subtitles=const.Language.ENGLISH,
                          type=const.VideoType.SERIE,
                          season=1,

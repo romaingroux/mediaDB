@@ -9,7 +9,7 @@ class VideoMedia(BaseModel, abc.ABC):
     """
     An abstract base model for any video media.
     """
-    
+
     """the media title"""
     title: str
     """the media audio language"""
@@ -30,9 +30,9 @@ class VideoMedia(BaseModel, abc.ABC):
             title: the value to check.
         Returns: the given value.
         """
-        if value is None:
-            raise ValueError("value cannot be None")
-        elif value == "":
+        # if value is None:
+        #     raise ValueError("value cannot be None")
+        if value == "":
             raise ValueError("value cannot be empty")
         return value
 
@@ -73,12 +73,6 @@ class Serie(VideoMedia):
     """
     A class modeling a serie episode
     """
-    """The season number, must be > 0"""
-    season: int
-    """The episode number, must be > 0"""
-    episode: int
-    """The episode name, optionnal"""
-    episode_name: tp.Optional[str] = None
     
     @model_validator(mode="after")
     def set_type(self) \
@@ -105,7 +99,7 @@ class Serie(VideoMedia):
     
     @field_validator("episode_name")
     @classmethod
-    def check_notempty(cls, value: str) \
+    def check_notempty_serie(cls, value: str) \
         -> str:
         """
         Checks that the value is not empty.
@@ -116,4 +110,11 @@ class Serie(VideoMedia):
         if value == "":
             raise ValueError("value cannot be empty")
         return value
+    
+    """The season number, must be > 0"""
+    season: int
+    """The episode number, must be > 0"""
+    episode: int
+    """The episode name, optionnal"""
+    episode_name: tp.Optional[str] = None
 
