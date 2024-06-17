@@ -408,6 +408,34 @@ class TestSerie:
                          episode=3,
                          episode_name="Screwby")
     
+    def test_0_season(self):
+        """
+        Tests construction with 0 value season argument.
+        Expected to raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            medias.Serie(title="Generation Kill",
+                         language=const.Language.ENGLISH,
+                         subtitles=const.Language.ENGLISH,
+                         type=const.VideoType.SERIE,
+                         season=0,
+                         episode=3,
+                         episode_name="Screwby")
+    
+    def test_neg_season(self):
+        """
+        Tests construction with negative value season argument.
+        Expected to raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            medias.Serie(title="Generation Kill",
+                         language=const.Language.ENGLISH,
+                         subtitles=const.Language.ENGLISH,
+                         type=const.VideoType.SERIE,
+                         season=-1,
+                         episode=3,
+                         episode_name="Screwby")
+    
     def test_no_episode(self):
         """
         Tests construction without episode argument.
@@ -419,6 +447,34 @@ class TestSerie:
                          subtitles=const.Language.ENGLISH,
                          type=const.VideoType.SERIE,
                          season=1,
+                         episode_name="Screwby")
+    
+    def test_0_episode(self):
+        """
+        Tests construction with 0 value episode argument.
+        Expected to raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            medias.Serie(title="Generation Kill",
+                         language=const.Language.ENGLISH,
+                         subtitles=const.Language.ENGLISH,
+                         type=const.VideoType.SERIE,
+                         season=1,
+                         episode=0,
+                         episode_name="Screwby")
+    
+    def test_neg_episode(self):
+        """
+        Tests construction with negative value episode argument.
+        Expected to raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            medias.Serie(title="Generation Kill",
+                         language=const.Language.ENGLISH,
+                         subtitles=const.Language.ENGLISH,
+                         type=const.VideoType.SERIE,
+                         season=1,
+                         episode=-1,
                          episode_name="Screwby")
     
     def test_no_episode_name(self):
@@ -445,3 +501,24 @@ class TestSerie:
         assert(serie.season == season)
         assert(serie.episode == episode)
         assert(serie.episode_name == None)
+
+    def test_empty_episode_name(self):
+        """
+        Test construction with an empty episode name string argument.
+        Expected to fail.
+        """
+        title = "Generation Kill"
+        language = const.Language.ENGLISH
+        subtitles = const.Language.ENGLISH
+        t = const.VideoType.SERIE
+        season = 1
+        episode = 3
+        with pytest.raises(ValueError):
+            serie = medias.Serie(title=title,
+                                language=language,
+                                subtitles=subtitles,
+                                type=t,
+                                season=season,
+                                episode=episode,
+                                episode_name="")
+        
