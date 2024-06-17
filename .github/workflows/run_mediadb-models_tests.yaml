@@ -6,4 +6,3 @@ jobs:
     runs-on: rgroux/python-dev-ubuntu@sha256:d4e62e22990f19ba1adeadc11e1ab2348a50a2cd4f409b8ac04ad7eec2d6af6b
     steps:
       - uses: actions/checkout@v4
-      - run: tox -c mediadb-models/tox.ini
