@@ -73,6 +73,13 @@ class Serie(VideoMedia):
     """
     A class modeling a serie episode
     """
+
+    """The season number, must be > 0"""
+    season: int
+    """The episode number, must be > 0"""
+    episode: int
+    """The episode name, optionnal"""
+    episode_name: tp.Optional[str] = None
     
     @model_validator(mode="after")
     def set_type(self) \
@@ -110,11 +117,5 @@ class Serie(VideoMedia):
         if value == "":
             raise ValueError("value cannot be empty")
         return value
-    
-    """The season number, must be > 0"""
-    season: int
-    """The episode number, must be > 0"""
-    episode: int
-    """The episode name, optionnal"""
-    episode_name: tp.Optional[str] = None
+
 
