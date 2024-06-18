@@ -6,7 +6,7 @@ jobs:
 
     run-tests:
         runs-on: ubuntu-latest
-        container: rgroux/python-dev-ubuntu@sha256:d4e62e22990f19ba1adeadc11e1ab2348a50a2cd4f409b8ac04ad7eec2d6af6b
+        container: rgroux/python-dev-ubuntu@sha256:b022384ddd11e83f83d0ecc6b4b50f86a0a3aec702ff1781bde40582a17d63bd
         steps:
             - name: checkout the repo
               uses: actions/checkout@v4
