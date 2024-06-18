@@ -12,5 +12,5 @@ jobs:
               uses: actions/checkout@v4
 
             - name: unittests mediadb-models
-              run: cd mediadb-models/ && tox
+              run: cd mediadb-models/ && tox -r
     
