@@ -4,12 +4,13 @@ run-name: mediaDB-models unittests
 on: [push]
 jobs:
 
-	unittests:
-		runs-on: ubuntu-latest
-		container: rgroux/python-dev-ubuntu@sha256:d4e62e22990f19ba1adeadc11e1ab2348a50a2cd4f409b8ac04ad7eec2d6af6b
-		steps:
-			- name: checkout repository
-			  uses: actions/checkout@v4$
-			
-			- name: unittests mediadb-models
-			  run: tox -c mediadb-models/
+    run-tests:
+        runs-on: ubuntu-latest
+        container: rgroux/python-dev-ubuntu@sha256:d4e62e22990f19ba1adeadc11e1ab2348a50a2cd4f409b8ac04ad7eec2d6af6b
+        steps:
+            - name: checkout the repo
+              uses: actions/checkout@v4
+
+            - name: unittests mediadb-models
+              run: tox -c mediadb-models/
+    
