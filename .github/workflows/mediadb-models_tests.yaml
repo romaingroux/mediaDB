@@ -13,4 +13,20 @@ jobs:
 
             - name: unittests mediadb-models
               run: cd mediadb-models/ && tox -r
+
+            - name: coverage badge
+              uses: tj-actions/coverage-badge-py@v2
+              with:
+                # Output path to write the 
+                # coverage badge. 
+                # Type: string
+                # Default: "coverage.svg"
+                output: 'coverage.svg'
+                # Overwrite an existing coverage badge.
+                # Type: boolean
+                # Default: "true"
+                overwrite: 'true'
+                # Current working directory
+                working-directory: 'mediadb-models'
+
     
