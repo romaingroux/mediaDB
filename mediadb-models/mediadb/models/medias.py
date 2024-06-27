@@ -2,6 +2,7 @@ from pydantic import BaseModel, field_validator, model_validator
 import typing as tp
 import typing_extensions as tp_ext
 import abc
+import pathlib as path
 import mediadb.models.constants as const
 
 
@@ -18,7 +19,9 @@ class VideoMedia(BaseModel, abc.ABC):
     subtitles: tp.Optional[const.Language] = None
     """the media type"""
     type: const.VideoType = const.VideoType.UNKNOWN
-    
+    """the path to the media file"""
+    file: path.Path
+
     @field_validator("title")
     @classmethod
     def check_notempty(cls, value: str) \
